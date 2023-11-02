@@ -17,7 +17,7 @@ s3 = session.client('s3',
                         aws_secret_access_key=secret)
 
 def convert(data):
-    print(data['to'])
+    print("videos/"+data['user']+"/"+data['title']+".mp4")
     temp_video = None
     temp = None
     try:
@@ -42,7 +42,7 @@ def convert(data):
                         subprocess.run(command, check=True)
                     except Exception as e:
                         print('error processing: ', e)
-                    s3.upload_file(temp.name, bucket, data['to'], ExtraArgs={'ACL': 'public-read', 'ContentType':'video/mp4', 'Metadata': metadata})
+                    s3.upload_file(temp.name, bucket, "videos/"+data['user']+"/"+data['title']+".mp4", ExtraArgs={'ACL': 'public-read', 'ContentType':'video/mp4', 'Metadata': metadata})
                     print("success")
             except Exception as e:
                 print("error: ", e)
