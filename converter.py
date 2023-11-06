@@ -22,7 +22,9 @@ def convert(data):
     try:
         metadata = {
             'title': data['title'],
+            'desc': data['desc'],
             'id': data['id'],
+            'user': data['user'],
             'time': data['time']
         }
         print(metadata)
