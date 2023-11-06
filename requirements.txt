@@ -1,5 +1,2 @@
 boto3
 botocore
-tempfile
-os
-subprocess
